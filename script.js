@@ -14,7 +14,10 @@
  * @return none
  */
 function main() {
-
+    let questions=5
+    let right= askQuestions(questions)
+    if (right==questions) alert("Perfect!")
+    else alert("You got " + right + " out of " + questions)
 }
 
 
@@ -24,9 +27,12 @@ function main() {
  * @return: {integer} right (0-questions)
  */
 function askQuestions(questions) {
-
+    let right=0
+    let questions=5
+    while(question <= questions){
+        right+= askQuestion(question)
+    }
 }
-
 
 /* askQuestion asks a multiplication question, using the question parameter to say which
  * question is being asked.  It returns 1 if correct, 0 if incorrect.
@@ -34,5 +40,11 @@ function askQuestions(questions) {
  * @return: {integer} correct (0 or 1) or {boolean} correct
  */
 function askQuestion(question){
-  
+  let a =  Math.floor(Math.random()*9)+1;
+  let b =  Math.floor(Math.random()*9)+1;
+  let product= a*b
+  let equation=
+  alert (equation) = prompt (answer)
+  if (answer==product) alert("Correct!")
+    else alert("Incorrect!")
 }
