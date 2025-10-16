@@ -27,10 +27,10 @@ function main() {
  * @return: {integer} right (0-questions)
  */
 function askQuestions(questions) {
-    right=0
+    let right=0
     let question=1
     while(question <= questions){
-        right+= askQuestion(question)
+        right += askQuestion(question)
         question++
     }
 }
@@ -41,11 +41,12 @@ function askQuestions(questions) {
  * @return: {integer} correct (0 or 1) or {boolean} correct
  */
 function askQuestion(question){
+ answer=true
   let a =  Math.floor(Math.random()*7)+3;
   let b =  Math.floor(Math.random()*7)+3;
-  let product= a*b
-  let equation= question(a*b)
-  answer= prompt(equation)
-  if (answer==product) alert("Correct");
-    else alert("Wrong")
+  let product= a * b
+  let equation= a * b
+  answer = prompt (equation)
+  if (answer==product) alert("Correct")
+    else alert("Incorrect!")
 }
