@@ -3,7 +3,7 @@
  * is being asked, and counting the number of equations with at least one error.
  * FLOWCHART: https://lucid.app/lucidchart/5a3164fd-459f-494d-9cae-b4a6be593b13/view
  */
-
+// NOTE TO STUDENT: Use this if you have to - but try to code based on the flowchart and comments in script.js only first! 
 
 /* main controls the program. 
  * Store the number of questions to ask in a variable called questions.
@@ -14,12 +14,11 @@
  * @return none
  */
 function main() {
-    let questions=5
-    let right = askQuestions(questions)
-    if (right==questions) alert("Perfect!")
-    else alert("You got " + right + " out of " + questions)
-}
-
+    let questions=5;
+    let right=askQuestions(questions);
+    if (right==questions) alert("Perfect");
+    else alert("You got "+ right +" out of "+ questions);
+    }
 
 /* askQuestions calls askQuestion() questions times (for loop), sending the question number as an argument. 
  * It counts the number right returned, and returns number right to main() for feedback.
@@ -27,15 +26,13 @@ function main() {
  * @return: {integer} right (0-questions)
  */
 function askQuestions(questions) {
+    let question=1;
     let right=0
-    let question=1
     while(question <= questions){
-        right += askQuestion(question)
+        right+=askQuestion(question)
         question++;
     }
-    return right;
 }
-
 /* askQuestion asks a multiplication question, using the question parameter to say which
  * question is being asked.  It returns 1 if correct, 0 if incorrect.
  * @param: {integer} question (1 - questions)
@@ -44,15 +41,15 @@ function askQuestions(questions) {
 function askQuestion(question){
     let a =  Math.floor(Math.random()*7)+3;
     let b =  Math.floor(Math.random()*7)+3;
-    let product= a * b;
-    let equation=  "Question " + question + ": " + a + " * " +b;
-    let answer = prompt (equation);
-    if (answer==product){
-    alert("Correct")
-    return true
+    let product= a*b
+    let equation= "Question"+question+ ": " + a + " * " + b + " = ?"
+    let answer=prompt(equation)
+    if (answer==product) {
+        alert ("Correct!")
+        return true
     }
     else{
-    alert("Incorrect! Answer was " + product)
-    return false
+        alert("Incorrect!")
+        return false
     }
 }
