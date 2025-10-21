@@ -16,7 +16,7 @@
 function main() {
     let questions=5;
     let right=askQuestions(questions);
-    if (right==questions) alert("Perfect");
+    if (right==questions) alert("Perfect! All correct.");
     else alert("You got "+ right +" out of "+ questions);
     }
 
@@ -32,6 +32,7 @@ function askQuestions(questions) {
         right+=askQuestion(question)
         question++;
     }
+    return right;
 }
 /* askQuestion asks a multiplication question, using the question parameter to say which
  * question is being asked.  It returns 1 if correct, 0 if incorrect.
