@@ -26,11 +26,9 @@ function main() {
  * @return: {integer} right (0-questions)
  */
 function askQuestions(questions) {
-    let question=1;
     let right=0
-    while(question <= questions){
+    for(let question=1; question <= questions; question++){
         right+=askQuestion(question)
-        question++;
     }
     return right;
 }
@@ -43,7 +41,7 @@ function askQuestion(question){
     let a =  Math.floor(Math.random()*7)+3;
     let b =  Math.floor(Math.random()*7)+3;
     let product= a*b
-    let equation= "Question"+question+ ": " + a + " * " + b + " = ?"
+    let equation= "Question "+question+ ": " + a + " * " + b + " = ?"
     let answer=prompt(equation)
     if (answer==product) {
         alert ("Correct!")
