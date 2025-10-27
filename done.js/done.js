@@ -4,7 +4,6 @@
  * FLOWCHART: https://lucid.app/lucidchart/5a3164fd-459f-494d-9cae-b4a6be593b13/view
  */
 
-
 /* main controls the program. 
  * Store the number of questions to ask in a variable called questions.
  * Call askQuestions, sending questions as an argument, which returns the number right. 
@@ -19,7 +18,6 @@ function main() {
     if (right==questions) alert("Perfect!")
     else alert("You got " + right + " out of " + questions)
 }
-
 
 /* askQuestions calls askQuestion() questions times (for loop), sending the question number as an argument. 
  * It counts the number right returned, and returns number right to main() for feedback.
