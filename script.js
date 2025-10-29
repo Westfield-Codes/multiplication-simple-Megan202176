@@ -23,7 +23,7 @@ function main(){
     let questions= setUp()
     for(let question=1; question<=questions; question++){
         score+=askQuestion(question)
-    }
+    }  
     showStats(score,questions)
 }
 
@@ -96,9 +96,13 @@ function showStats(score, questions){
     if(score==questions)alert("Perfection Badge!")
         else{
             let errors=questions-score;
-            alert("Here are you errors"+ showErros(errors))
-        }
-    if(tables==true)
+            alert("Here are you errors:"+ showErrors(errors))
+        }  
+    if(tables==true){
+        tables=confirm("Do you want to study "+ more+" tables?")
+    }
+    if(tables==true) factor=prompt("Show table for which factor?")
+        showTable(factor)
 }
 /* Function showErrors(errors)
  * Provides feedback on errors by showing pairs of factors.
@@ -106,7 +110,7 @@ function showStats(score, questions){
  * @param: errors
  * @return: none
  */
-function showErros(){
+function showErros(erros){
 
 }
 
