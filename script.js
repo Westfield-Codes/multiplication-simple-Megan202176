@@ -74,6 +74,7 @@ function askQuestion(question) {
         return true}
     else{
         mistakes.push(a,b)
+        alert(mistakes.toString())
         alert("Wrong!")
         return false;
     }
@@ -95,14 +96,17 @@ function showStats(score, questions){
     let more=any;
     if(score==questions)alert("Perfection Badge!")
         else{
+            alert("You got "+ score+" out of "+ questions+" right")
             let errors=questions-score;
             alert("Here are you errors:"+ showErrors(errors))
         }  
-    if(tables==true){
-        tables=confirm("Do you want to study "+ more+" tables?")
-    }
-    if(tables==true) factor=prompt("Show table for which factor?")
+    while(tables==true){
+        tables=confirm("Do you want to study "+ more +" tables?")
+    if(tables==true) 
+        factor=prompt("Show table for which factor?")
         showTable(factor)
+        more=more
+    }
 }
 /* Function showErrors(errors)
  * Provides feedback on errors by showing pairs of factors.
@@ -110,8 +114,13 @@ function showStats(score, questions){
  * @param: errors
  * @return: none
  */
-function showErros(erros){
-
+function showErros(errors){
+    let feedback=("Here are your errors: \n")
+    for(let error=0; error<errors; error+=2){
+        feedback+=mistakes[error]*mistakes[error+1]+"\n"
+    }
+    alert(feedback)
+    statsAnalysis()
 }
 
 /* Function showTable(factor)
@@ -121,5 +130,9 @@ function showErros(erros){
  * @return: none
  */
 function showTable(factor){
-
+    let table=("Times table for "+ factor);
+    for(let line=low; line<=high; line++){
+        table+=line*factor+"="+ line*factor;
+    }
+    alert(table);
 }
