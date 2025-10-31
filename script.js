@@ -93,7 +93,7 @@ function askQuestion(question) {
 function showStats(score, questions){
     let factor=0;
     let tables=true;
-    let more=any;
+    let more="any";
     if(score==questions)alert("Perfection Badge!")
         else{
             alert("You got "+ score+" out of "+ questions+" right")
@@ -105,7 +105,7 @@ function showStats(score, questions){
     if(tables==true) 
         factor=prompt("Show table for which factor?")
         showTable(factor)
-        more=more
+        more="more"
     }
 }
 /* Function showErrors(errors)
@@ -114,13 +114,13 @@ function showStats(score, questions){
  * @param: errors
  * @return: none
  */
-function showErros(errors){
+function showErrors(errors){
     let feedback=("Here are your errors: \n")
     for(let error=0; error<errors; error+=2){
         feedback+=mistakes[error]*mistakes[error+1]+"\n"
     }
     alert(feedback)
-    statsAnalysis()
+    statsAnalysis ()
 }
 
 /* Function showTable(factor)
@@ -132,7 +132,7 @@ function showErros(errors){
 function showTable(factor){
     let table=("Times table for "+ factor);
     for(let line=low; line<=high; line++){
-        table+=line*factor+"="+ line*factor;
+        (table+=line*factor+"="+ line*factor);
     }
     alert(table);
 }
