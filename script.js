@@ -64,8 +64,8 @@ function changeVar(variable){
  * @return: boolean value 
  */
 function askQuestion(question) {
-    let a=Math.floor(Math.random()*high-low+1)+low;
-    let b=Math.floor(Math.random()*high-low+1)+low;
+    let a=Math.floor(Math.random()*(high-low+1))+low;
+    let b=Math.floor(Math.random()*(high-low+1))+low;
     let product=a*b;
     let equation=("Question "+ question+" : " + a + " * "+b+" = ?")
     let answer=prompt(equation);
@@ -74,7 +74,6 @@ function askQuestion(question) {
         return true}
     else{
         mistakes.push(a,b)
-        alert(mistakes.toString())
         alert("Wrong!")
         return false;
     }
@@ -98,7 +97,7 @@ function showStats(score, questions){
         else{
             alert("You got "+ score+" out of "+ questions+" right")
             let errors=questions-score;
-            alert("Here are you errors:"+ showErrors(errors))
+            showErrors(errors)
         }  
     while(tables==true){
         tables=confirm("Do you want to study "+ more +" tables?")
@@ -116,11 +115,10 @@ function showStats(score, questions){
  */
 function showErrors(errors){
     let feedback=("Here are your errors: \n")
-    for(let error=0; error<errors; error+=2){
-        feedback+=mistakes[error]*mistakes[error+1]+"\n"
+    for(let error=0; error< mistakes.length; error+=2){
+        feedback += mistakes[error] + "," + mistakes[error+1] + "\n"
     }
     alert(feedback)
-    statsAnalysis ()
 }
 
 /* Function showTable(factor)
@@ -130,9 +128,9 @@ function showErrors(errors){
  * @return: none
  */
 function showTable(factor){
-    let table=("Times table for "+ factor);
+    let table=("Times table for "+ factor+ " :\n");
     for(let line=low; line<=high; line++){
-        (table+=line*factor+"="+ line*factor);
-    }
+        table+= factor + " x " + line + " = " + (factor * line)+ "\n"
+        }
     alert(table);
 }
